@@ -22,7 +22,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/arjun138x/shared-jobber.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -41,6 +41,7 @@
   "dependencies": {
     "@elastic/elasticsearch": "^9.1.1",
     "cloudinary": "^2.1.0",
+    "elastic-apm-node": "^3.52.2",
     "express": "^5.1.0",
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2",
