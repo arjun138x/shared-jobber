@@ -1,4 +1,8 @@
-import { Field, QueryDslRangeQuery, SearchHit } from '@elastic/elasticsearch/lib/api/types';
+import {
+  Field,
+  QueryDslRangeQuery,
+  SearchHit,
+} from '@elastic/elasticsearch/lib/api/types';
 
 export interface ISearchResult {
   hits: SearchHit[];

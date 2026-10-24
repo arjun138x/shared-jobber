@@ -80,7 +80,7 @@ export {
   NotAuthorizedError,
   FileTooLargeError,
   ServerError,
-  ErrnoException
+  ErrnoException,
 } from './error-handler';
 export { verifyGatewayRequest } from './gateway-middleware';
 export { winstonLogger } from './logger';
@@ -89,5 +89,5 @@ export {
   lowerCase,
   toUpperCase,
   isEmail,
-  isDataURL
+  isDataURL,
 } from './helpers';

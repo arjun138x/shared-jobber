@@ -1,4 +1,3 @@
-
 export interface IOffer {
   [key: string]: string | number | boolean | undefined;
   gigTitle: string;

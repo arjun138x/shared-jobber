@@ -1,4 +1,7 @@
-import cloudinary, { UploadApiErrorResponse, UploadApiResponse } from 'cloudinary';
+import cloudinary, {
+  UploadApiErrorResponse,
+  UploadApiResponse,
+} from 'cloudinary';
 
 export function uploads(
   file: string,
@@ -13,9 +16,12 @@ export function uploads(
         public_id,
         overwrite,
         invalidate,
-        resource_type: 'auto' // zip, images
+        resource_type: 'auto', // zip, images
       },
-      (error: UploadApiErrorResponse | undefined, result: UploadApiResponse | undefined) => {
+      (
+        error: UploadApiErrorResponse | undefined,
+        result: UploadApiResponse | undefined
+      ) => {
         if (error) resolve(error);
         resolve(result);
       }
@@ -37,9 +43,12 @@ export function videoUpload(
         overwrite,
         invalidate,
         chunk_size: 50000,
-        resource_type: 'video'
+        resource_type: 'video',
       },
-      (error: UploadApiErrorResponse | undefined, result: UploadApiResponse | undefined) => {
+      (
+        error: UploadApiErrorResponse | undefined,
+        result: UploadApiResponse | undefined
+      ) => {
         if (error) resolve(error);
         resolve(result);
       }

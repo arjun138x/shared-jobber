@@ -47,7 +47,7 @@ export interface IMessageDetails {
 
 export interface IChatBoxProps {
   seller: IChatSellerProps;
-  buyer: IChatBuyerProps
+  buyer: IChatBuyerProps;
   gigId: string;
   onClose: () => void;
 }
