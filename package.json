@@ -18,8 +18,8 @@
     "trailingComma": "es5"
   },
   "keywords": [],
-  "name": "shared-repo",
-  "author": "",
+  "name": "@arjun138x/shared-repo",
+  "author": "Lee",
   "repository": {
     "type": "git",
     "url": "https://github.com/arjun138x/shared-jobber.git"
