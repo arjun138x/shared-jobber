@@ -1,3 +1,4 @@
+import apm from 'elastic-apm-node';
 import winston, { Logger } from 'winston';
 import { ElasticsearchTransport, LogData } from 'winston-elasticsearch';
 
@@ -39,7 +40,7 @@ export const winstonLogger = (
   name: string,
   level: string
 ): Logger => {
-  const options: any = {
+  const options = {
     console: {
       level,
       handleExceptions: true,
@@ -47,6 +48,7 @@ export const winstonLogger = (
       colorize: true,
     },
     elasticsearch: {
+      apm,
       level,
       transformer: esTransformer,
       clientOpts: {
@@ -58,13 +60,21 @@ export const winstonLogger = (
       },
     },
   };
+  const esTransport: ElasticsearchTransport = new ElasticsearchTransport(
+    options.elasticsearch
+  );
 
-  const esTransport = new ElasticsearchTransport(options.elasticsearch as any);
+  esTransport.on('warning', (error) =>
+    console.error('Elasticsearch warning:', error)
+  );
+  esTransport.on('error', (error) =>
+    console.error('Elasticsearch transport error:', error)
+  );
+
   const logger: Logger = winston.createLogger({
     exitOnError: false,
     defaultMeta: { service: name },
     transports: [new winston.transports.Console(options.console), esTransport],
   });
-
   return logger;
 };
